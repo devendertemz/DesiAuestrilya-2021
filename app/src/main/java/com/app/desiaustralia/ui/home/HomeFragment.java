@@ -79,27 +79,34 @@ public class HomeFragment extends Fragment {
         recylerView.setLayoutManager(layoutManager);
         recylerView.setNestedScrollingEnabled(true);
 
+     // Log.e("Tokkkeennnnnn",SharedPrefManager.getInstance(getActivity()).getAccess_Token());
 
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if (task.isSuccessful()) {
+        if (SharedPrefManager.getInstance(getActivity()).getAccess_Token()==null) {
+            FirebaseInstanceId.getInstance().getInstanceId()
+                    .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                            if (task.isSuccessful()) {
 
-                            Devicetoken = task.getResult().getToken();
-                            SharedPrefManager.getInstance(getActivity()).storeToken(Devicetoken);
-                            Log.d("Devicetoken", Devicetoken);
-                           // Toast.makeText(getActivity(), Devicetoken + "", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getActivity(), "Devicetoken is not generated", Toast.LENGTH_SHORT).show();
+                                Devicetoken = task.getResult().getToken();
+                                SharedPrefManager.getInstance(getActivity()).storeToken(Devicetoken);
+                                Log.d("Devicetoken", Devicetoken);
+                                performLogin(Devicetoken);
+
+                                // Toast.makeText(getActivity(), Devicetoken + "", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getActivity(), "Devicetoken is not generated", Toast.LENGTH_SHORT).show();
+                            }
+
+
                         }
+                    });
+        }else {
+         //   performLogin(SharedPrefManager.getInstance(getActivity()).getAccess_Token());
+
+        }
 
 
-                    }
-                });
-
-
-        performLogin();
 
         if (NetworkUtil.checkNetworkStatus(getActivity())) {
             progressBar.setVisibility(View.VISIBLE);
@@ -152,7 +159,7 @@ public class HomeFragment extends Fragment {
         }
     };
 
-    public void performLogin() {
+    public void performLogin(String devicetoken) {
 
 
         String android_id = Settings.Secure.getString(getContext().getContentResolver(),
@@ -160,7 +167,7 @@ public class HomeFragment extends Fragment {
         Log.d("android_id", android_id);
         //  Toast.makeText(getActivity(), android_id+"", Toast.LENGTH_1SHORT).show();
 
-        String DeviceTokenn=SharedPrefManager.getInstance(getActivity()).getAccess_Token();
+       // String DeviceTokenn = SharedPrefManager.getInstance(getActivity()).getAccess_Token();
         //Toast.makeText(getActivity(), DeviceTokenn+"", Toast.LENGTH_SHORT).show();
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
@@ -170,7 +177,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(String response) {
 
-               // Toast.makeText(getContext(), response.toString() + "", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getContext(), response.toString() + "", Toast.LENGTH_SHORT).show();
+                Log.d("android_id", response.toString());
 
 
             }
@@ -178,13 +186,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-             Toast.makeText(getActivity(), "Net", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Net", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("devicetoken_id",DeviceTokenn);
+                params.put("devicetoken_id", devicetoken);
                 return params;
             }
         };

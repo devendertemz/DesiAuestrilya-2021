@@ -36,13 +36,21 @@ import java.util.List;
 import java.util.Map;
 
 public class MyFirebaseService3 extends FirebaseMessagingService {
+
+
     public static int NOTIFICATION_ID = 1;
     private static final String TAG = "FirebaseMessagingServic";
     String GROUP_KEY_WORK_EMAIL = "com.app.desiaustralia";
+
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
+
         Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-        Log.d(TAG, " data size: "+ remoteMessage.getData().size());
+        Log.d(TAG, " Notificationnnn " + "\n Body    ----- "+remoteMessage.getNotification().getBody() +"\n Title---"+
+                remoteMessage.getNotification().getTitle() +"\n image  ---"+
+                remoteMessage.getNotification().getImageUrl());
+
+        Log.d(TAG, " data size: " + remoteMessage.getData().size());
 
 
         if (remoteMessage.getData() != null) {
@@ -68,6 +76,7 @@ public class MyFirebaseService3 extends FirebaseMessagingService {
     }
 
     private void sendnotification(RemoteMessage remoteMessage) {
+
         Map<String, String> data = remoteMessage.getData();
         String title = data.get("title");
         String des = data.get("text");
@@ -103,7 +112,9 @@ public class MyFirebaseService3 extends FirebaseMessagingService {
                 .setContentTitle(title)
                 .setContentText(des)
                 .setLargeIcon(bit)
+
                 .setSound(alarmSound)
+
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setVibrate(new long[]{1000, 1000})
                 .setLights(Color.RED, 3000, 3000)
@@ -124,6 +135,8 @@ public class MyFirebaseService3 extends FirebaseMessagingService {
     }
 
     private void generateNotification(String body, String title, Uri url) {
+
+
         Log.d(TAG, "remoteMessage notification: " + title + "\n" + title + "\n" + url);
 
         String stringUri = url.toString();
@@ -149,6 +162,7 @@ public class MyFirebaseService3 extends FirebaseMessagingService {
 
 
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
         NotificationCompat.Builder notifcationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_notifications)
                 .setContentTitle(title)

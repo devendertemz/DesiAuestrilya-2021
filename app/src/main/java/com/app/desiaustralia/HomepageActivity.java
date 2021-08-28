@@ -14,6 +14,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.desiaustralia.utility.AppUpdateChecker;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.app.desiaustralia.ui.home.DesiTVFragment;
 import com.app.desiaustralia.ui.home.EMagazineFragment;
@@ -125,6 +126,12 @@ public class HomepageActivity extends AppCompatActivity {
 
 
         }
+
+
+        AppUpdateChecker appUpdateChecker = new AppUpdateChecker(this);  //pass the activity in constructure
+        appUpdateChecker.checkForUpdate(false); //mannual check false here
+
+
     }
 
     private boolean loadFragment(Fragment fragment) {

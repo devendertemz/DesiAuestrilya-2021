@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "230233580539",
-    "firebase_url": "https://my-application-46d6e.firebaseio.com",
-    "project_id": "my-application-46d6e",
-    "storage_bucket": "my-application-46d6e.appspot.com"
+    "project_number": "570266157089",
+    "project_id": "desiaustralia-52fe9",
+    "storage_bucket": "desiaustralia-52fe9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:230233580539:android:2984f0b68499cb6e10615e",
+        "mobilesdk_app_id": "1:570266157089:android:6ae31ef12bd9bb26e5e360",
         "android_client_info": {
           "package_name": "com.app.desiaustralia"
         }
       },
       "oauth_client": [
         {
-          "client_id": "230233580539-e31qa5ri92mi5ltnqqnllo7e0v9fj0dp.apps.googleusercontent.com",
+          "client_id": "570266157089-ghuh3kals7k1k5ts2bds5isnhkggsh66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.desiaustralia",
+            "certificate_hash": "db0b3c8ba5ea9585420b40dda0f3d36bd672337c"
+          }
+        },
+        {
+          "client_id": "570266157089-0tptrd6i6fg2sf1s84clv0efkfq0gd48.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC4hXql-MC0ojyqYXYF_wq5jmUYvYU7KnI"
+          "current_key": "AIzaSyDpi0ZE3NeIzVnAbfZNADWKTMN0l8UVYko"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "230233580539-e31qa5ri92mi5ltnqqnllo7e0v9fj0dp.apps.googleusercontent.com",
+              "client_id": "570266157089-0tptrd6i6fg2sf1s84clv0efkfq0gd48.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
