@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.app.desiaustralia.ui.dashboard.DashboardFragment"
+        android:name="com.thetemz.desiaustralia.ui.dashboard.DashboardFragment"
         tools:layout="@layout/fragment_dashboard"
         android:label="@string/title_home"
          />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.app.desiaustralia.ui.dashboard.DashboardFragment"
+        android:name="com.thetemz.desiaustralia.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:label="@string/title_notifications"
-        android:name="com.app.desiaustralia.ui.home.HomeFragment"
+        android:name="com.thetemz.desiaustralia.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home"
         />
     <fragment
         android:id="@+id/navigation_notifications1"
-        android:name="com.app.desiaustralia.ui.notifications.NotificationsFragment"
+        android:name="com.thetemz.desiaustralia.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_notifications2"
-        android:name="com.app.desiaustralia.ui.notifications.NotificationsFragment"
+        android:name="com.thetemz.desiaustralia.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

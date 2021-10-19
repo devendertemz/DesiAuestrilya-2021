@@ -3,14 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#05171212"
     tools:context=".ui.home.EMagazineFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="3dp"
         android:id="@+id/recylerView"
+        tools:itemCount="3"
+        tools:listitem="@layout/newsletter_adapter_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <ProgressBar
+
         android:id="@+id/progressBar"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
